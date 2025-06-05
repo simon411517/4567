@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>會考預估排名系統</title>
   <style>
-    <style>
     body {
       background-color: #f8f4ef;
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -25,14 +24,15 @@
       transition: transform 0.3s;
     }
     select {
-      width: 180px; /* 桌機版選單寬度 */
+      width: 180px;
     }
     .form-group {
       display: flex;
-      flex-direction: row;
+      flex-direction: row; /* 桌機版橫排 */
       justify-content: center;
       gap: 10px;
       margin-top: 10px;
+      flex-wrap: wrap; /* 防止太擠換行 */
     }
     button {
       background-color: #d8b4a0;
@@ -130,18 +130,18 @@
     }
     @media (max-width: 600px) {
       .form-group {
-        flex-direction: column; /* 手機直式排列 */
+        flex-direction: column; /* 手機版直式排列 */
         align-items: center;
       }
       .form-group select {
-        width: 250px; /* 手機版選單寬度 */
-        margin-bottom: 12px; /* 每個選單間距 */
+        width: 250px;
+        margin-bottom: 10px;
       }
       button {
         width: 250px;
       }
       .images {
-        flex-direction: column;
+        flex-direction: column; /* 圖片直式 */
         align-items: center;
       }
       .images img {
@@ -149,11 +149,7 @@
         max-width: 90%;
       }
     }
-</style>
-
-   
-     
-  
+  </style>
 </head>
 <body>
   <div class="big-title">114國中教育會考</div>
@@ -261,8 +257,7 @@
   </div>
 
   <!-- 第一個按鈕 -->
-  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢
-</a>
+  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢</a>
 
   <div class="images">
     <img src="https://i.postimg.cc/yNtsgQRz/S-251994164.png" alt="圖片1">
@@ -275,4 +270,4 @@
   <div class="footer">排名依照大考中心公布之各級人數百分比統計表預估，僅供參考</div>
 
 </body>
-</html>  
+</html>
