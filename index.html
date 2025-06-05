@@ -129,11 +129,12 @@
     }
     @media (max-width: 600px) {
       .form-group {
-        flex-direction: column; /* ✅ 強制直排 */
-        align-items: center;    /* ✅ 置中 */
+        flex-direction: column; /* 直式排列 */
+        align-items: center;    /* 中間置中 */
       }
       .form-group select {
-        width: 220px;           /* ✅ 手機版下拉寬一點 */
+        width: 100%;            /* 滿版寬度 */
+        max-width: 300px;        /* 最寬不要超過300px */
       }
     }
   </style>
@@ -255,7 +256,7 @@
   <div class="footer">排名依照大考中心公布之各級人數百分比統計表預估，僅供參考</div>
 
   <script>
-    // 你的原本的 JavaScript，這邊不用改
+    // 這裡是原本的計算排名JS，無需更動
   </script>
 </body>
 </html>
