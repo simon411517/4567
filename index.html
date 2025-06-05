@@ -1,8 +1,8 @@
-
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>成績預估排名系統</title>
+  <title>會考預估排名系統</title>
   <style>
     body {
       background-color: #f8f4ef;
@@ -28,7 +28,7 @@
     }
     .form-group {
       display: flex;
-      flex-direction: row; /* 桌機版橫排 */
+      flex-direction: row; /* 桌機橫向排列 */
       justify-content: center;
       gap: 10px;
       margin-top: 10px;
@@ -129,7 +129,7 @@
     }
     @media (max-width: 600px) {
       .form-group {
-        flex-direction: column; /* 手機版直式排列 */
+        flex-direction: column; /* ⬅️ 手機直排 */
         align-items: center;
       }
       .form-group select {
@@ -140,7 +140,7 @@
         width: 250px;
       }
       .images {
-        flex-direction: column; /* 圖片直式 */
+        flex-direction: column;
         align-items: center;
       }
       .images img {
@@ -153,7 +153,7 @@
 <body>
   <div class="big-title">114國中教育會考</div>
 
-  <h1>成績預估排名系統</h1>
+  <h1>會考預估排名系統</h1>
 
   <select id="region">
     <option value="">請選擇考區</option>
@@ -183,7 +183,6 @@
   </div>
 
   <div class="form-group">
-    <!-- 五科成績輸入 -->
     <select id="chinese">
       <option value="">國文</option>
       <option value="A">A++</option>
@@ -246,26 +245,7 @@
     </select>
   </div>
 
-  <button onclick="calculateRank()">計算排名</button>
-
-  <div class="card" id="result" style="display:none;">
-    <div id="grade" class="info"></div>
-    <div id="regionName" class="info"></div>
-    <div id="ranking" class="highlight"></div>
-    <div id="percent" class="highlight"></div>
-  </div>
-
-  <!-- 第一個按鈕 -->
-  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢
-</a>
-
-  <div class="images">
-    <img src="https://i.postimg.cc/yNtsgQRz/S-251994164.png" alt="圖片1">
-    <img src="https://i.postimg.cc/WzQ50Znz/S-251994166.jpg" alt="圖片2">
-  </div>
-
-  <!-- 第二個按鈕 -->
-  <a href="https://sites.google.com/view/prerequisites2025/%E9%A6%96%E9%A0%81" class="link-button" target="_blank">高一先修課程資訊/報名</a>
+  <button>計算排名</button>
 
   <div class="footer">排名依照大考中心公布之各級人數百分比統計表預估，僅供參考</div>
 
