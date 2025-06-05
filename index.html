@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
@@ -53,6 +54,7 @@
       display: inline-block;
       text-align: center;
       transition: background-color 0.3s;
+      white-space: pre-line;
     }
     .link-button:hover {
       background-color: #b59382;
@@ -247,11 +249,12 @@
     <div id="percent" class="highlight"></div>
   </div>
 
-  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析 / 課程諮詢</a>
+  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢
+高一先修課程資訊/報名</a>
 
   <div class="images">
-    <img src="/mnt/data/S__251994164.png" alt="圖片1">
-    <img src="/mnt/data/S__251994166.jpg" alt="圖片2">
+    <img src="https://i.postimg.cc/yNtsgQRz/S-251994164.png" alt="圖片1">
+    <img src="https://i.postimg.cc/WzQ50Znz/S-251994166.jpg" alt="圖片2">
   </div>
 
   <a href="https://sites.google.com/view/prerequisites2025/%E9%A6%96%E9%A0%81" class="link-button" target="_blank">高一先修</a>
@@ -259,60 +262,13 @@
   <div class="footer">排名依照大考中心公布之各級人數百分比統計表預估，僅供參考</div>
 
   <script>
-    const scoreData = {
-      "5A0B0C": 9.29,
-      "4A1B0C": 5.47,
-      "4A0B1C": 0.02,
-      "3A2B0C": 5.45,
-      "3A1B1C": 0.05,
-      "3A0B2C": 0.00,
-      "2A3B0C": 7.02,
-      "2A2B1C": 0.18,
-      "2A1B2C": 0.01,
-      "2A0B3C": 0.00,
-      "1A4B0C": 10.99,
-      "1A3B1C": 1.06,
-      "1A2B2C": 0.15,
-      "1A1B3C": 0.03,
-      "1A0B4C": 0.02,
-      "0A5B0C": 22.75,
-      "0A4B1C": 11.70,
-      "0A3B2C": 7.99,
-      "0A2B3C": 6.10,
-      "0A1B4C": 5.10,
-      "0A0B5C": 6.62
-    };
+    const scoreData = { "5A0B0C": 9.29, "4A1B0C": 5.47, "4A0B1C": 0.02, "3A2B0C": 5.45, "3A1B1C": 0.05, "3A0B2C": 0.00, "2A3B0C": 7.02, "2A2B1C": 0.18, "2A1B2C": 0.01, "2A0B3C": 0.00, "1A4B0C": 10.99, "1A3B1C": 1.06, "1A2B2C": 0.15, "1A1B3C": 0.03, "1A0B4C": 0.02, "0A5B0C": 22.75, "0A4B1C": 11.70, "0A3B2C": 7.99, "0A2B3C": 6.10, "0A1B4C": 5.10, "0A0B5C": 6.62 };
 
-    const regionNames = {
-      "21311": "臺北考區",
-      "29825": "新北考區",
-      "3561": "宜蘭考區",
-      "2392": "基隆考區",
-      "18474": "桃園考區",
-      "14022": "竹苗考區",
-      "29181": "中投考區",
-      "9041": "彰化考區",
-      "4953": "雲林考區",
-      "5169": "嘉義考區",
-      "13373": "臺南考區",
-      "5102": "屏東考區",
-      "18796": "高雄考區",
-      "2400": "花蓮考區",
-      "1472": "臺東考區",
-      "524": "澎湖考區",
-      "589": "金門考區",
-      "80": "馬祖考區"
-    };
+    const regionNames = { "21311": "臺北考區", "29825": "新北考區", "3561": "宜蘭考區", "2392": "基隆考區", "18474": "桃園考區", "14022": "竹苗考區", "29181": "中投考區", "9041": "彰化考區", "4953": "雲林考區", "5169": "嘉義考區", "13373": "臺南考區", "5102": "屏東考區", "18796": "高雄考區", "2400": "花蓮考區", "1472": "臺東考區", "524": "澎湖考區", "589": "金門考區", "80": "馬祖考區" };
 
     function calculateRank() {
       const region = document.getElementById("region").value;
-      const scores = [
-        document.getElementById("chinese").value,
-        document.getElementById("math").value,
-        document.getElementById("english").value,
-        document.getElementById("science").value,
-        document.getElementById("social").value
-      ];
+      const scores = [ document.getElementById("chinese").value, document.getElementById("math").value, document.getElementById("english").value, document.getElementById("science").value, document.getElementById("social").value ];
 
       if (!region || scores.includes("")) {
         alert("請選擇考區並填寫所有科目成績！");
