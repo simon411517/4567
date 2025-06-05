@@ -28,10 +28,10 @@
     }
     .form-group {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
     button {
       background-color: #d8b4a0;
@@ -129,17 +129,18 @@
     }
     @media (max-width: 600px) {
       .form-group {
-        flex-direction: column; /* 成績直式排列 */
+        flex-direction: column; /* 🔥成績下拉選單直式排列 */
         align-items: center;
       }
-      select {
-        width: 220px;
+      .form-group select {
+        width: 250px;
+        margin-bottom: 10px;
       }
       button {
-        width: 220px;
+        width: 250px;
       }
       .images {
-        flex-direction: column; /* 圖片直式排列 */
+        flex-direction: column; /* 🔥圖片直式排列 */
         align-items: center;
       }
       .images img {
