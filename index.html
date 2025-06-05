@@ -33,6 +33,14 @@
       gap: 10px;
       margin-top: 10px;
     }
+    /* 成績輸入專用 form group */
+    .form-group.score-input {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
     button {
       background-color: #d8b4a0;
       color: #fff;
@@ -128,14 +136,11 @@
       margin-bottom: 20px;
     }
     @media (max-width: 600px) {
-      .form-group {
+      .form-group.score-input {
         flex-direction: column;
         align-items: center;
       }
-      select {
-        width: 220px;
-      }
-      button {
+      .form-group.score-input select {
         width: 220px;
       }
       .images {
@@ -180,7 +185,8 @@
     只要輸入自己的考區和成績就可以囉！
   </div>
 
-  <div class="form-group">
+  <!-- 成績輸入區 -->
+  <div class="form-group score-input">
     <select id="chinese">
       <option value="">國文</option>
       <option value="A">A++</option>
@@ -252,8 +258,7 @@
     <div id="percent" class="highlight"></div>
   </div>
 
-  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢
-</a>
+  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢</a>
 
   <div class="images">
     <img src="https://i.postimg.cc/yNtsgQRz/S-251994164.png" alt="圖片1">
@@ -306,4 +311,3 @@
   </script>
 </body>
 </html>
-
