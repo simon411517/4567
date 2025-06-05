@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>成績預估排名系統</title> 
+  <title>會考預估排名系統</title>
   <style>
     body {
       background-color: #f8f4ef;
@@ -12,7 +12,6 @@
       flex-direction: column;
       align-items: center;
       padding: 20px;
-      box-sizing: border-box;
     }
     select, button {
       margin: 10px;
@@ -23,15 +22,9 @@
       background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       transition: transform 0.3s;
-      box-sizing: border-box;
     }
     select {
       width: 180px;
-    }
-    #region {
-      max-width: 300px;
-      width: 100%;
-      margin-bottom: 20px;
     }
     .form-group {
       display: flex;
@@ -46,7 +39,6 @@
       font-weight: bold;
       transition: background-color 0.3s, transform 0.3s;
       width: 200px;
-      cursor: pointer;
     }
     button:hover, .link-button:hover {
       background-color: #b59382;
@@ -65,8 +57,6 @@
       text-align: center;
       transition: background-color 0.3s, transform 0.3s;
       white-space: pre-line;
-      width: 200px;
-      box-sizing: border-box;
     }
     .images {
       display: flex;
@@ -130,32 +120,30 @@
       font-size: 28px;
       color: #4d3b33;
       margin-bottom: 30px;
-      text-align: center;
     }
     .big-title {
       font-size: 32px;
       font-weight: bold;
       color: #3e2f28;
       margin-bottom: 20px;
-      text-align: center;
     }
     @media (max-width: 600px) {
       .form-group {
         flex-direction: column;
-        align-items: stretch;
-        width: 100%;
+        align-items: center;
       }
-      .form-group select {
-        display: block;
-        width: 100%;
-        margin: 8px 0;
-        box-sizing: border-box;
-        font-size: 18px;
-        padding: 16px;
+      select {
+        width: 220px;
       }
-      button, .link-button {
-        width: 100%;
-        max-width: 300px;
+      button {
+        width: 220px;
+      }
+      .images {
+        flex-direction: column;
+        align-items: center;
+      }
+      .images img {
+        max-width: 90%;
       }
     }
   </style>
@@ -163,7 +151,7 @@
 <body>
   <div class="big-title">114國中教育會考</div>
 
-  <h1>成績預估排名系統</h1> 
+  <h1>會考預估排名系統</h1>
 
   <select id="region">
     <option value="">請選擇考區</option>
@@ -264,19 +252,57 @@
     <div id="percent" class="highlight"></div>
   </div>
 
-  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢</a>
+  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢
+高一先修課程資訊/報名</a>
 
   <div class="images">
     <img src="https://i.postimg.cc/yNtsgQRz/S-251994164.png" alt="圖片1">
     <img src="https://i.postimg.cc/WzQ50Znz/S-251994166.jpg" alt="圖片2">
   </div>
 
-  <a href="https://sites.google.com/view/prerequisites2025/%E9%A6%96%E9%A0%81" class="link-button" target="_blank">高一先修課程資訊/報名</a>
+  <a href="https://sites.google.com/view/prerequisites2025/%E9%A6%96%E9%A0%81" class="link-button" target="_blank">高一先修</a>
 
   <div class="footer">排名依照大考中心公布之各級人數百分比統計表預估，僅供參考</div>
 
   <script>
-    // calculateRank() JavaScript 稍後補上！
+    const scoreData = { "5A0B0C": 9.29, "4A1B0C": 5.47, "4A0B1C": 0.02, "3A2B0C": 5.45, "3A1B1C": 0.05, "3A0B2C": 0.00, "2A3B0C": 7.02, "2A2B1C": 0.18, "2A1B2C": 0.01, "2A0B3C": 0.00, "1A4B0C": 10.99, "1A3B1C": 1.06, "1A2B2C": 0.15, "1A1B3C": 0.03, "1A0B4C": 0.02, "0A5B0C": 22.75, "0A4B1C": 11.70, "0A3B2C": 7.99, "0A2B3C": 6.10, "0A1B4C": 5.10, "0A0B5C": 6.62 };
+
+    const regionNames = { "21311": "臺北考區", "29825": "新北考區", "3561": "宜蘭考區", "2392": "基隆考區", "18474": "桃園考區", "14022": "竹苗考區", "29181": "中投考區", "9041": "彰化考區", "4953": "雲林考區", "5169": "嘉義考區", "13373": "臺南考區", "5102": "屏東考區", "18796": "高雄考區", "2400": "花蓮考區", "1472": "臺東考區", "524": "澎湖考區", "589": "金門考區", "80": "馬祖考區" };
+
+    function calculateRank() {
+      const region = document.getElementById("region").value;
+      const scores = [ document.getElementById("chinese").value, document.getElementById("math").value, document.getElementById("english").value, document.getElementById("science").value, document.getElementById("social").value ];
+
+      if (!region || scores.includes("")) {
+        alert("請選擇考區並填寫所有科目成績！");
+        return;
+      }
+
+      const A = scores.filter(s => s === 'A').length;
+      const B = scores.filter(s => s === 'B').length;
+      const C = scores.filter(s => s === 'C').length;
+      const gradeCombo = `${A}A${B}B${C}C`;
+
+      const percent = scoreData[gradeCombo];
+      if (percent === undefined) {
+        document.getElementById("grade").innerText = `成績類別：${gradeCombo}`;
+        document.getElementById("regionName").innerText = `考區：${regionNames[region]}`;
+        document.getElementById("ranking").innerText = `查無資料，可能無人考到此組合`;
+        document.getElementById("percent").innerText = "";
+        document.getElementById("result").style.display = "block";
+        return;
+      }
+
+      const totalStudents = parseInt(region);
+      const estimatedStart = 1;
+      const estimatedEnd = Math.floor(totalStudents * (percent / 100));
+
+      document.getElementById("grade").innerText = `成績類別：${gradeCombo}`;
+      document.getElementById("regionName").innerText = `考區：${regionNames[region]}`;
+      document.getElementById("ranking").innerText = `預估排名範圍：第 ${estimatedStart} 名 ～ 第 ${estimatedEnd} 名`;
+      document.getElementById("percent").innerText = `預估百分比範圍：0% ～ ${percent.toFixed(2)}%`;
+      document.getElementById("result").style.display = "block";
+    }
   </script>
 </body>
 </html>
