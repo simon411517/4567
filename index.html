@@ -12,6 +12,7 @@
       flex-direction: column;
       align-items: center;
       padding: 20px;
+      box-sizing: border-box;
     }
     select, button {
       margin: 10px;
@@ -22,6 +23,7 @@
       background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       transition: transform 0.3s;
+      box-sizing: border-box;
     }
     select {
       width: 180px;
@@ -39,6 +41,7 @@
       font-weight: bold;
       transition: background-color 0.3s, transform 0.3s;
       width: 200px;
+      cursor: pointer;
     }
     button:hover, .link-button:hover {
       background-color: #b59382;
@@ -57,6 +60,8 @@
       text-align: center;
       transition: background-color 0.3s, transform 0.3s;
       white-space: pre-line;
+      width: 200px;
+      box-sizing: border-box;
     }
     .images {
       display: flex;
@@ -120,23 +125,33 @@
       font-size: 28px;
       color: #4d3b33;
       margin-bottom: 30px;
+      text-align: center;
     }
     .big-title {
       font-size: 32px;
       font-weight: bold;
       color: #3e2f28;
       margin-bottom: 20px;
+      text-align: center;
     }
     @media (max-width: 600px) {
       .form-group {
-        flex-direction: column; /* 直式排列 */
-        align-items: center;    /* 中間置中 */
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
       }
       .form-group select {
-        display: block;         /* 讓選單變 block 元素 */
-        width: 100%;            /* 滿版寬度 */
-        max-width: 300px;       /* 最大300px，不會太大 */
-        margin: 8px 0;          /* 上下有一點間距 */
+        width: 100%;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+      button, .link-button {
+        width: 100%;
+        max-width: 300px;
+      }
+      select {
+        font-size: 18px;
+        padding: 16px;
       }
     }
   </style>
@@ -258,7 +273,7 @@
   <div class="footer">排名依照大考中心公布之各級人數百分比統計表預估，僅供參考</div>
 
   <script>
-    // 這裡是你的 JS 省略
+    // 原本的JS
   </script>
 </body>
 </html>
