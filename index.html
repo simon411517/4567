@@ -133,8 +133,10 @@
         align-items: center;    /* 中間置中 */
       }
       .form-group select {
+        display: block;         /* 讓選單變 block 元素 */
         width: 100%;            /* 滿版寬度 */
-        max-width: 300px;        /* 最寬不要超過300px */
+        max-width: 300px;       /* 最大300px，不會太大 */
+        margin: 8px 0;          /* 上下有一點間距 */
       }
     }
   </style>
@@ -256,7 +258,7 @@
   <div class="footer">排名依照大考中心公布之各級人數百分比統計表預估，僅供參考</div>
 
   <script>
-    // 這裡是原本的計算排名JS，無需更動
+    // 這裡是你的 JS 省略
   </script>
 </body>
 </html>
