@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>成績預估排名系統</title> 
+  <title>成績預估排名系統</title>
   <style>
     body {
       background-color: #f8f4ef;
@@ -12,7 +12,6 @@
       flex-direction: column;
       align-items: center;
       padding: 20px;
-      box-sizing: border-box;
     }
     select, button {
       margin: 10px;
@@ -23,7 +22,6 @@
       background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       transition: transform 0.3s;
-      box-sizing: border-box;
     }
     select {
       width: 180px;
@@ -44,46 +42,12 @@
       background-color: #d8b4a0;
       color: #fff;
       font-weight: bold;
-      transition: background-color 0.3s, transform 0.3s;
       width: 200px;
       cursor: pointer;
     }
-    button:hover, .link-button:hover {
-      background-color: #b59382;
-      transform: scale(1.05);
-    }
-    .link-button {
-      margin: 20px 10px;
-      padding: 12px 24px;
-      font-size: 18px;
-      background-color: #d8b4a0;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      display: inline-block;
-      text-align: center;
-      transition: background-color 0.3s, transform 0.3s;
-      white-space: pre-line;
-      width: 200px;
-      box-sizing: border-box;
-    }
-    .images {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px 0;
-    }
-    .images img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
     .card {
       background-color: #ffffff;
-      padding: 30px;
+      padding: 20px;
       margin-top: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -93,67 +57,29 @@
     }
     .info {
       margin: 10px 0;
-      padding: 12px;
-      border-radius: 8px;
-      background-color: #f1e7de;
-      font-size: 20px;
+      font-size: 18px;
       color: #5c4a42;
     }
     .highlight {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: bold;
       color: #7a5c51;
-      background-color: #f4eae3;
-      padding: 12px;
-      border-radius: 8px;
-      display: inline-block;
       margin: 10px 0;
     }
-    .description {
-      margin: 15px 0;
-      font-size: 16px;
-      color: #5a5147;
-      text-align: center;
-      max-width: 600px;
-    }
-    .footer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #666;
-      padding: 10px;
-      border-top: 1px solid #ccc;
-      width: 100%;
-      text-align: center;
-    }
-    h1 {
-      font-weight: 600;
-      font-size: 28px;
-      color: #4d3b33;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-    .big-title {
-      font-size: 32px;
-      font-weight: bold;
-      color: #3e2f28;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    /* 手機版：改成直排 */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .form-group {
-        flex-direction: column;
+        flex-direction: column; /* 手機直式排列 */
         align-items: stretch;
         width: 100%;
       }
       .form-group select {
         width: 100%;
         margin: 8px 0;
-        box-sizing: border-box;
         font-size: 18px;
         padding: 16px;
+        box-sizing: border-box;
       }
-      button, .link-button {
+      button {
         width: 100%;
         max-width: 300px;
       }
@@ -161,9 +87,8 @@
   </style>
 </head>
 <body>
-  <div class="big-title">114國中教育會考</div>
 
-  <h1>成績預估排名系統</h1> 
+  <h1>成績預估排名系統</h1>
 
   <select id="region">
     <option value="">請選擇考區</option>
@@ -187,17 +112,22 @@
     <option value="80">馬祖考區</option>
   </select>
 
-  <div class="description">
-    會考成績公布了～看看自己的考區排名，幫助你更快找到適合的學校！<br>
-    只要輸入自己的考區和成績就可以囉！
-  </div>
-
   <div class="form-group">
-    <select id="chinese"><option value="">國文</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option></select>
-    <select id="math"><option value="">數學</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option></select>
-    <select id="english"><option value="">英文</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option></select>
-    <select id="science"><option value="">理化</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option></select>
-    <select id="social"><option value="">社會</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option></select>
+    <select id="chinese">
+      <option value="">國文</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option>
+    </select>
+    <select id="math">
+      <option value="">數學</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option>
+    </select>
+    <select id="english">
+      <option value="">英文</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option>
+    </select>
+    <select id="science">
+      <option value="">理化</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option>
+    </select>
+    <select id="social">
+      <option value="">社會</option><option value="A">A++</option><option value="A">A+</option><option value="A">A</option><option value="B">B++</option><option value="B">B+</option><option value="B">B</option><option value="C">C++</option><option value="C">C+</option><option value="C">C</option>
+    </select>
   </div>
 
   <button onclick="calculateRank()">計算排名</button>
@@ -208,17 +138,6 @@
     <div id="ranking" class="highlight"></div>
     <div id="percent" class="highlight"></div>
   </div>
-
-  <a href="https://lin.ee/eVIPVuL" class="link-button" target="_blank">完整落點分析/課程諮詢</a>
-
-  <div class="images">
-    <img src="https://i.postimg.cc/yNtsgQRz/S-251994164.png" alt="圖片1">
-    <img src="https://i.postimg.cc/WzQ50Znz/S-251994166.jpg" alt="圖片2">
-  </div>
-
-  <a href="https://sites.google.com/view/prerequisites2025/%E9%A6%96%E9%A0%81" class="link-button" target="_blank">高一先修課程資訊/報名</a>
-
-  <div class="footer">排名依照大考中心公布之各級人數百分比統計表預估，僅供參考</div>
 
   <script>
     const scoreData = {
@@ -271,5 +190,6 @@
       document.getElementById("result").style.display = "block";
     }
   </script>
+
 </body>
 </html>
