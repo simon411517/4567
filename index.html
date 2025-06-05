@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
@@ -20,14 +19,24 @@
       border-radius: 8px;
       border: 1px solid #d6c8ba;
       background-color: #fff;
-      width: 250px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    select {
+      width: 180px;
+    }
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
     }
     button {
       background-color: #d8b4a0;
       color: #fff;
       font-weight: bold;
       transition: background-color 0.3s;
+      width: 200px;
     }
     button:hover {
       background-color: #b59382;
@@ -88,6 +97,14 @@
       color: #3e2f28;
       margin-bottom: 20px;
     }
+    @media (max-width: 600px) {
+      select {
+        width: 140px;
+      }
+      button {
+        width: 160px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -122,7 +139,7 @@
     只要輸入自己的考區和成績就可以囉！
   </div>
 
-  <div>
+  <div class="form-group">
     <select id="chinese">
       <option value="">國文</option>
       <option value="A">A++</option>
